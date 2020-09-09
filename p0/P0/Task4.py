@@ -4,11 +4,11 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-with open('texts.csv', 'r') as f:
+with open('p0/P0/texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
 
-with open('calls.csv', 'r') as f:
+with open('p0/P0/calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
 
@@ -24,4 +24,13 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
+telemarketers = {}
+for i in calls:
+    if i[0][:3] == '140':
+        telemarketers[i[0]] = None
 
+teleList = list(telemarketers.keys())
+teleList.sort()
+print("These numbers could be telemarketers: ")
+for i in teleList:
+    print(i)
